@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Политика конфиденциальности | Quran Blessing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a1a 0%, #0d0d25 50%, #0a0a1a 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Анимированный фон */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        .bg-animation::after {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 80% 60%, rgba(139, 92, 246, 0.06) 0%, transparent 50%);
+            animation: pulse 20s ease-in-out infinite reverse;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-20%, -20%) rotate(0deg); opacity: 0.5; }
+            50% { transform: translate(-10%, -10%) rotate(5deg); opacity: 1; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        /* Glass-карточка */
+        .card {
+            background: rgba(20, 20, 40, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .header {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.1));
+            padding: 40px 32px;
+            text-align: center;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .header .subtitle {
+            color: #94a3b8;
+            font-size: 16px;
+        }
+
+        .header .version {
+            display: inline-block;
+            margin-top: 16px;
+            padding: 4px 12px;
+            background: rgba(59, 130, 246, 0.15);
+            border-radius: 20px;
+            font-size: 12px;
+            color: #60a5fa;
+        }
+
+        .content {
+            padding: 32px;
+        }
+
+        .content h2 {
+            font-size: 22px;
+            font-weight: 600;
+            color: #60a5fa;
+            margin: 28px 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .content h2:first-of-type {
+            margin-top: 0;
+        }
+
+        .content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #cbd5e1;
+            margin: 20px 0 12px 0;
+        }
+
+        .content p {
+            margin-bottom: 14px;
+            color: #cbd5e1;
+        }
+
+        .content ul, .content ol {
+            margin: 12px 0 20px 32px;
+            color: #cbd5e1;
+        }
+
+        .content li {
+            margin: 8px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.15);
+            color: #4ade80;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .badge-red {
+            background: rgba(239, 68, 68, 0.15);
+            color: #f87171;
+        }
+
+        .info-box {
+            background: rgba(59, 130, 246, 0.08);
+            border-left: 3px solid #3b82f6;
+            padding: 16px 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 24px 32px;
+            text-align: center;
+            border-top: 1px solid rgba(59, 130, 246, 0.1);
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            background: rgba(20, 20, 40, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 40px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            font-size: 14px;
+        }
+
+        .language-switch a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .language-switch a.active {
+            color: #60a5fa;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 16px 60px;
+            }
+            .header {
+                padding: 28px 20px;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+            .content {
+                padding: 24px 20px;
+            }
+            .content h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="language-switch">
+        <a href="#" class="active" onclick="switchLanguage('ru')">Русский</a> |
+        <a href="#" onclick="switchLanguage('en')">English</a>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>📖 Политика конфиденциальности</h1>
+                <div class="subtitle">Quran Blessing — Душевное спокойствие</div>
+                <div class="version">Последнее обновление: 15 мая 2025 г.</div>
+            </div>
+
+            <div class="content" id="content-ru">
+                <h2>1. Общие положения</h2>
+                <p>Добро пожаловать в Quran Blessing (далее — "Приложение"). Мы уважаем вашу конфиденциальность и обязуемся защищать ваши персональные данные. Настоящая Политика конфиденциальности объясняет, какую информацию мы собираем, как мы её используем и какие меры предпринимаем для её защиты.</p>
+
+                <h2>2. Какую информацию мы собираем</h2>
+                
+                <h3>2.1. Информация, которую вы предоставляете добровольно</h3>
+                <ul>
+                    <li><strong>Избранные суры:</strong> Список ваших любимых сур сохраняется локально на вашем устройстве.</li>
+                    <li><strong>Настройки приложения:</strong> Язык интерфейса, тема оформления, настройки уведомлений сохраняются на вашем устройстве.</li>
+                </ul>
+
+                <h3>2.2. Информация, собираемая автоматически</h3>
+                <p>Наше Приложение <span class="badge">НЕ собирает</span>:</p>
+                <ul>
+                    <li>Персональные данные (имя, email, телефон, адрес)</li>
+                    <li>Геолокацию</li>
+                    <li>Данные об устройстве (IMEI, MAC-адрес)</li>
+                    <li>Историю использования приложения</li>
+                    <li>Данные о перемещениях</li>
+                </ul>
+
+                <h3>2.3. Аудиофайлы и уведомления</h3>
+                <ul>
+                    <li>Для воспроизведения аудио (суры Корана и звуки природы) приложение запрашивает доступ к аудиосессии вашего устройства. Все аудиофайлы хранятся локально и не передаются на наши серверы.</li>
+                    <li>Для отправки ежедневных напоминаний приложение запрашивает разрешение на отправку уведомлений. Вы можете отключить их в любой момент в настройках вашего устройства.</li>
+                </ul>
+
+                <h2>3. Как мы используем вашу информацию</h2>
+                <p>Поскольку мы не собираем ваши персональные данные, информация, хранящаяся локально на вашем устройстве, используется исключительно для:</p>
+                <ul>
+                    <li>Сохранения ваших настроек и предпочтений</li>
+                    <li>Восстановления вашего плейлиста и избранного после перезапуска приложения</li>
+                    <li>Персонализации вашего опыта использования</li>
+                </ul>
+
+                <h2>4. Хранение данных</h2>
+                <div class="info-box">
+                    Все данные (избранные суры, настройки, прогресс прослушивания) хранятся <strong>исключительно на вашем устройстве</strong> с использованием стандартных механизмов хранения iOS (UserDefaults). Мы не имеем доступа к этим данным и не передаём их третьим лицам.
+                </div>
+
+                <h2>5. Передача данных третьим лицам</h2>
+                <p>Мы <span class="badge">НЕ передаём</span> ваши данные третьим лицам, поскольку:</p>
+                <ul>
+                    <li>У нас нет серверов для сбора и хранения данных</li>
+                    <li>Все данные остаются на вашем устройстве</li>
+                    <li>Приложение не использует сторонние аналитические сервисы</li>
+                    <li>Приложение не использует рекламные сети</li>
+                </ul>
+
+                <h2>6. Разрешения приложения</h2>
+                <p>Приложение может запрашивать следующие разрешения:</p>
+                <ul>
+                    <li><strong>Уведомления:</strong> Для отправки ежедневных напоминаний о прослушивании Корана</li>
+                    <li><strong>Фоновое воспроизведение:</strong> Для продолжения прослушивания при свёрнутом приложении или заблокированном экране</li>
+                </ul>
+                <p>Каждое разрешение запрашивается только в момент необходимости. Вы можете отозвать разрешения в настройках вашего устройства.</p>
+
+                <h2>7. Безопасность</h2>
+                <p>Мы принимаем следующие меры для защиты ваших данных:</p>
+                <ul>
+                    <li>Все данные хранятся локально на вашем устройстве</li>
+                    <li>Приложение не подключается к внешним серверам для передачи данных</li>
+                    <li>Используются стандартные механизмы безопасности iOS</li>
+                </ul>
+
+                <h2>8. Дети</h2>
+                <p>Приложение не предназначено для сбора данных от лиц младше 13 лет. Мы не собираем никакую информацию о возрасте пользователей. Приложение можно безопасно использовать под наблюдением родителей.</p>
+
+                <h2>9. Изменения в политике конфиденциальности</h2>
+                <p>Мы можем обновлять нашу Политику конфиденциальности время от времени. О любых изменениях мы будем уведомлять пользователей путём публикации новой версии в App Store. Рекомендуем периодически проверять эту страницу на предмет изменений.</p>
+
+                <h2>10. Ваши права</h2>
+                <p>Поскольку мы не храним ваши данные на серверах, вы имеете полный контроль над своей информацией:</p>
+                <ul>
+                    <li>Вы можете удалить приложение и все локальные данные в любой момент</li>
+                    <li>Вы можете управлять разрешениями приложения через настройки iOS</li>
+                </ul>
+
+                <h2>11. Контакты</h2>
+                <div class="info-box">
+                    Если у вас есть вопросы или предложения относительно нашей Политики конфиденциальности, пожалуйста, свяжитесь с нами:<br><br>
+                    <strong>Email:</strong> ваша_почта@example.com<br>
+                    <strong>Разработчик:</strong> Akhmetkhanov<br>
+                    <strong>Приложение:</strong> Quran Blessing
+                </div>
+
+                <h2>12. Применимое право</h2>
+                <p>Настоящая Политика конфиденциальности регулируется законодательством Российской Федерации.</p>
+
+                <h2>Для пользователей из Европейского Союза (GDPR)</h2>
+                <p>В соответствии с Общим регламентом по защите данных (GDPR), информируем вас, что:</p>
+                <ul>
+                    <li>Мы не собираем и не обрабатываем персональные данные</li>
+                    <li>Все данные хранятся локально на вашем устройстве</li>
+                    <li>Вы имеете право на удаление всех данных простым удалением приложения</li>
+                </ul>
+
+                <h2>Для пользователей из Калифорнии (CCPA)</h2>
+                <p>В соответствии с Калифорнийским законом о защите прав потребителей (CCPA), информируем вас, что:</p>
+                <ul>
+                    <li>Мы не продаём и не передаём ваши личные данные</li>
+                    <li>У нас нет информации о вас, которую можно было бы предоставить по запросу</li>
+                </ul>
+            </div>
+
+            <div class="content" id="content-en" style="display: none;">
+                <h2>1. General Provisions</h2>
+                <p>Welcome to Quran Blessing (hereinafter referred to as the "App"). We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains what information we collect, how we use it, and what measures we take to protect it.</p>
+
+                <h2>2. What Information We Collect</h2>
+                
+                <h3>2.1. Information You Provide Voluntarily</h3>
+                <ul>
+                    <li><strong>Favorite Surahs:</strong> Your list of favorite surahs is stored locally on your device.</li>
+                    <li><strong>App Settings:</strong> Interface language, theme, notification settings are stored on your device.</li>
+                </ul>
+
+                <h3>2.2. Automatically Collected Information</h3>
+                <p>Our App <span class="badge">DOES NOT collect</span>:</p>
+                <ul>
+                    <li>Personal data (name, email, phone, address)</li>
+                    <li>Geolocation</li>
+                    <li>Device data (IMEI, MAC address)</li>
+                    <li>Usage history</li>
+                    <li>Movement data</li>
+                </ul>
+
+                <h3>2.3. Audio Files and Notifications</h3>
+                <ul>
+                    <li>To play audio (Quran surahs and nature sounds), the app requests access to your device's audio session. All audio files are stored locally and are not transmitted to our servers.</li>
+                    <li>To send daily reminders, the app requests notification permission. You can disable them at any time in your device settings.</li>
+                </ul>
+
+                <h2>3. How We Use Your Information</h2>
+                <p>Since we do not collect your personal data, information stored locally on your device is used solely for:</p>
+                <ul>
+                    <li>Saving your settings and preferences</li>
+                    <li>Restoring your playlist and favorites after restarting the app</li>
+                    <li>Personalizing your experience</li>
+                </ul>
+
+                <h2>4. Data Storage</h2>
+                <div class="info-box">
+                    All data (favorite surahs, settings, playback progress) is stored <strong>exclusively on your device</strong> using standard iOS storage mechanisms (UserDefaults). We do not have access to this data and do not share it with third parties.
+                </div>
+
+                <h2>5. Data Transfer to Third Parties</h2>
+                <p>We <span class="badge">DO NOT transfer</span> your data to third parties because:</p>
+                <ul>
+                    <li>We have no servers to collect and store data</li>
+                    <li>All data remains on your device</li>
+                    <li>The app does not use third-party analytics services</li>
+                    <li>The app does not use advertising networks</li>
+                </ul>
+
+                <h2>6. App Permissions</h2>
+                <p>The app may request the following permissions:</p>
+                <ul>
+                    <li><strong>Notifications:</strong> To send daily reminders about listening to the Quran</li>
+                    <li><strong>Background Playback:</strong> To continue listening when the app is minimized or the screen is locked</li>
+                </ul>
+                <p>Each permission is requested only when necessary. You can revoke permissions in your device settings.</p>
+
+                <h2>7. Security</h2>
+                <p>We take the following measures to protect your data:</p>
+                <ul>
+                    <li>All data is stored locally on your device</li>
+                    <li>The app does not connect to external servers to transfer data</li>
+                    <li>Standard iOS security mechanisms are used</li>
+                </ul>
+
+                <h2>8. Children</h2>
+                <p>The app is not intended to collect data from persons under 13 years of age. We do not collect any information about users' age. The app can be safely used under parental supervision.</p>
+
+                <h2>9. Changes to the Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. We will notify users of any changes by posting a new version in the App Store. We recommend periodically checking this page for changes.</p>
+
+                <h2>10. Your Rights</h2>
+                <p>Since we do not store your data on servers, you have full control over your information:</p>
+                <ul>
+                    <li>You can delete the app and all local data at any time</li>
+                    <li>You can manage app permissions through iOS settings</li>
+                </ul>
+
+                <h2>11. Contacts</h2>
+                <div class="info-box">
+                    If you have questions or suggestions regarding our Privacy Policy, please contact us:<br><br>
+                    <strong>Email:</strong> your_email@example.com<br>
+                    <strong>Developer:</strong> Akhmetkhanov<br>
+                    <strong>App:</strong> Quran Blessing
+                </div>
+
+                <h2>12. Applicable Law</h2>
+                <p>This Privacy Policy is governed by the laws of the Russian Federation.</p>
+
+                <h2>For EU Users (GDPR)</h2>
+                <p>In accordance with the General Data Protection Regulation (GDPR), we inform you that:</p>
+                <ul>
+                    <li>We do not collect or process personal data</li>
+                    <li>All data is stored locally on your device</li>
+                    <li>You have the right to delete all data by simply deleting the app</li>
+                </ul>
+
+                <h2>For California Users (CCPA)</h2>
+                <p>In accordance with the California Consumer Privacy Act (CCPA), we inform you that:</p>
+                <ul>
+                    <li>We do not sell or transfer your personal data</li>
+                    <li>We have no information about you that could be provided upon request</li>
+                </ul>
+            </div>
+
+            <div class="footer">
+                <p>© 2025 Akhmetkhanov. Все права защищены. | Quran Blessing</p>
+                <p style="margin-top: 8px;">
+                    <a href="#">Наверх</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            const ruContent = document.getElementById('content-ru');
+            const enContent = document.getElementById('content-en');
+            const links = document.querySelectorAll('.language-switch a');
+            
+            if (lang === 'ru') {
+                ruContent.style.display = 'block';
+                enContent.style.display = 'none';
+                links[0].classList.add('active');
+                links[1].classList.remove('active');
+                document.title = 'Политика конфиденциальности | Quran Blessing';
+            } else {
+                ruContent.style.display = 'none';
+                enContent.style.display = 'block';
+                links[0].classList.remove('active');
+                links[1].classList.add('active');
+                document.title = 'Privacy Policy | Quran Blessing';
+            }
+        }
+    </script>
+</body>
+</html>
